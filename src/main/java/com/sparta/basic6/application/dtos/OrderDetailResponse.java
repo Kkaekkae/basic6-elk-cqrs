@@ -1,4 +1,4 @@
-package com.sparta.basic6.application.order.dtos;
+package com.sparta.basic6.application.dtos;
 
 import com.sparta.basic6.domain.Order;
 import com.sparta.basic6.domain.OrderProduct;

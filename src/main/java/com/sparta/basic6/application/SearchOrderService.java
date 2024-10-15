@@ -1,6 +1,6 @@
-package com.sparta.basic6.application.order;
+package com.sparta.basic6.application;
 
-import com.sparta.basic6.application.order.dtos.OrderSearchResponse;
+import com.sparta.basic6.application.dtos.OrderSearchResponse;
 import com.sparta.basic6.domain.Order;
 
 import java.util.List;

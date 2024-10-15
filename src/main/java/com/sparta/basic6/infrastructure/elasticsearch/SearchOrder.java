@@ -1,6 +1,5 @@
 package com.sparta.basic6.infrastructure.elasticsearch;
 
-import com.sparta.basic6.application.order.dtos.OrderDetailResponse;
 import com.sparta.basic6.domain.Order;
 import com.sparta.basic6.domain.OrderProduct;
 import com.sparta.basic6.domain.OrderStatus;
@@ -17,14 +16,13 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor
-@Builder(access = AccessLevel.PRIVATE)
+@Builder
 @Document(indexName = "order")
 public class SearchOrder {
     @Id
@@ -56,7 +54,7 @@ public class SearchOrder {
     @Getter
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @NoArgsConstructor
-    @Builder(access = AccessLevel.PRIVATE)
+    @Builder
     public static class SearchProduct {
         private String name;
         private List<String> images;

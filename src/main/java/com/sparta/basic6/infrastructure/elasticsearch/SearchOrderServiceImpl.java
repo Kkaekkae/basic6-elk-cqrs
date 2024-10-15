@@ -1,13 +1,11 @@
 package com.sparta.basic6.infrastructure.elasticsearch;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
-import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
-import co.elastic.clients.elasticsearch._types.query_dsl.RangeQuery;
 import co.elastic.clients.json.JsonData;
-import com.sparta.basic6.application.order.SearchOrderService;
-import com.sparta.basic6.application.order.dtos.OrderSearchResponse;
+import com.sparta.basic6.application.SearchOrderService;
+import com.sparta.basic6.application.dtos.OrderSearchResponse;
 import com.sparta.basic6.domain.Order;
 import com.sparta.basic6.infrastructure.jpa.OrderElasticSearchRepository;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
@@ -15,7 +13,6 @@ import org.springframework.data.elasticsearch.client.elc.NativeQueryBuilder;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -45,7 +42,7 @@ public class SearchOrderServiceImpl implements SearchOrderService {
 
         query.withQuery(boolQuery.build()._toQuery());
         SearchHits<SearchOrder> hits = elasticsearchOperations.search(query.build(), SearchOrder.class);
-        return hits.stream().map(hit -> toDto(hit.getContent())).toList();
+        return hits.map(hit -> toDto(hit.getContent())).toList();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.sparta.basic6.domain.repository;
 
-import com.sparta.basic6.application.order.dtos.OrderCreateRequest;
 import com.sparta.basic6.domain.Order;
 
 import java.util.Optional;

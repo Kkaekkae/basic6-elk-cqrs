@@ -1,6 +1,6 @@
-package com.sparta.basic6.application.order.service.message;
+package com.sparta.basic6.application.service.message;
 
-import com.sparta.basic6.application.order.dtos.message.OrderMessage;
+import com.sparta.basic6.application.dtos.message.OrderMessage;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 

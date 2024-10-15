@@ -1,9 +1,9 @@
 package com.sparta.basic6.userInterface;
 
-import com.sparta.basic6.application.order.dtos.OrderCreateRequest;
-import com.sparta.basic6.application.order.dtos.OrderDetailResponse;
-import com.sparta.basic6.application.order.dtos.OrderSearchResponse;
-import com.sparta.basic6.application.order.service.OrderService;
+import com.sparta.basic6.application.dtos.OrderCreateRequest;
+import com.sparta.basic6.application.dtos.OrderDetailResponse;
+import com.sparta.basic6.application.dtos.OrderSearchResponse;
+import com.sparta.basic6.application.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,9 +1,10 @@
-package com.sparta.basic6.application.order.service;
+package com.sparta.basic6.application.service;
 
-import com.sparta.basic6.application.order.SearchOrderService;
-import com.sparta.basic6.application.order.dtos.OrderSearchResponse;
+import com.sparta.basic6.application.SearchOrderService;
+import com.sparta.basic6.application.dtos.OrderDetailResponse;
+import com.sparta.basic6.application.dtos.OrderSearchResponse;
+import com.sparta.basic6.domain.Order;
 import com.sparta.basic6.domain.repository.OrderRepository;
-import com.sparta.basic6.infrastructure.elasticsearch.SearchOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,10 @@ public class OrderQueryService {
     public List<OrderSearchResponse> getOrders(String productName, Long startPrice, Long endPrice) {
         List<OrderSearchResponse> response = searchOrderService.search(productName, startPrice, endPrice);
         return response;
+    }
+
+    public OrderDetailResponse getOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow();
+        return OrderDetailResponse.of(order);
     }
 }

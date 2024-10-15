@@ -1,4 +1,4 @@
-package com.sparta.basic6.application.order.dtos;
+package com.sparta.basic6.application.dtos;
 
 import com.sparta.basic6.domain.OrderStatus;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -22,6 +21,7 @@ public class OrderSearchResponse {
     LocalDate createdAt;
     LocalDate expectedDeliveryStartDate;
     LocalDate expectedDeliveryEndDate;
+
     @AllArgsConstructor
     @NoArgsConstructor
     @Getter

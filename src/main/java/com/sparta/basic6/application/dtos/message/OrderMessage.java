@@ -1,4 +1,4 @@
-package com.sparta.basic6.application.order.dtos.message;
+package com.sparta.basic6.application.dtos.message;
 
 import com.sparta.basic6.domain.OrderStatus;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,9 @@
-package com.sparta.basic6.application.order.service.message;
+package com.sparta.basic6.application.service.message;
 
-import com.sparta.basic6.application.order.SearchOrderService;
-import com.sparta.basic6.application.order.dtos.message.OrderMessage;
+import com.sparta.basic6.application.SearchOrderService;
+import com.sparta.basic6.application.dtos.message.OrderMessage;
 import com.sparta.basic6.domain.Order;
 import com.sparta.basic6.domain.repository.OrderRepository;
-import com.sparta.basic6.infrastructure.jpa.OrderElasticSearchRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.RetryableTopic;

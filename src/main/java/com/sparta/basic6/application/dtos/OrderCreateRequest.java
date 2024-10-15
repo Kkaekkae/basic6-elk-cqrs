@@ -1,4 +1,4 @@
-package com.sparta.basic6.application.order.dtos;
+package com.sparta.basic6.application.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

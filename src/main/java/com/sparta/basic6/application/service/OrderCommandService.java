@@ -1,9 +1,9 @@
-package com.sparta.basic6.application.order.service;
+package com.sparta.basic6.application.service;
 
-import com.sparta.basic6.application.order.dtos.OrderCreateRequest;
-import com.sparta.basic6.application.order.dtos.OrderDetailResponse;
-import com.sparta.basic6.application.order.dtos.message.OrderMessage;
-import com.sparta.basic6.application.order.service.message.OrderProduceService;
+import com.sparta.basic6.application.dtos.OrderCreateRequest;
+import com.sparta.basic6.application.dtos.OrderDetailResponse;
+import com.sparta.basic6.application.dtos.message.OrderMessage;
+import com.sparta.basic6.application.service.message.OrderProduceService;
 import com.sparta.basic6.domain.Order;
 import com.sparta.basic6.domain.OrderProduct;
 import com.sparta.basic6.domain.ProductImage;
