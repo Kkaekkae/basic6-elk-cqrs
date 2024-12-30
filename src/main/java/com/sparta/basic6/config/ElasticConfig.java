@@ -32,19 +32,9 @@ public class ElasticConfig extends ElasticsearchConfiguration {
     @Override
     @SneakyThrows
     public ClientConfiguration clientConfiguration() {
-        final CredentialsProvider credentialsProvider =
-                new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(AuthScope.ANY,
-                new UsernamePasswordCredentials("elastic", password));
-
         return ClientConfiguration.builder()
                 .connectedTo(hostUrl)
                 .withBasicAuth(username, password)
-                .withHeaders(() -> {
-                    HttpHeaders headers = new HttpHeaders();
-                    headers.add("currentTime", LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-                    return headers;
-                })
                 .build();
     }
 }

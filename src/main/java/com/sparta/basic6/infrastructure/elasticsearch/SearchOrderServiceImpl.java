@@ -38,7 +38,7 @@ public class SearchOrderServiceImpl implements SearchOrderService {
         }
 
         // 문자열 포함 쿼리
-        QueryBuilders.queryString(field -> field.fields(List.of("totalPrice")).query("*%s*".formatted(productName)));
+        boolQuery.must(QueryBuilders.queryString(field -> field.fields(List.of("products_list.name")).query("*%s*".formatted(productName))));
 
         query.withQuery(boolQuery.build()._toQuery());
         SearchHits<SearchOrder> hits = elasticsearchOperations.search(query.build(), SearchOrder.class);
