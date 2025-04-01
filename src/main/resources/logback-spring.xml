@@ -3,14 +3,14 @@
     <!-- 콘솔에 로그 출력 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} springboot-elk [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
         </encoder>
     </appender>
 
     <!-- Logstash로 로그 전송 -->
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <param name="Encoding" value="UTF-8"/>
-        <destination>127.0.0.1:50000</destination>
+        <destination>localhost:50000</destination>
 
 <!--        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />-->
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
@@ -19,10 +19,12 @@
                     <timeZone>UTC</timeZone>
                 </timestamp>
                 <logLevel />
-                <threadName />
                 <loggerName />
+                <threadName />
+                <mdc />
                 <message />
                 <stackTrace />
+                <context />
             </providers>
         </encoder>
     </appender>

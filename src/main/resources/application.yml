@@ -2,7 +2,7 @@ spring:
   application:
     name: basic6
   datasource:
-    url: jdbc:mysql://localhost:3306/basic6?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3307/sparta?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -28,10 +28,18 @@ spring:
   data:
     elasticsearch:
       host: localhost:9200
-      api-key: cnZJTGFwSUJCcTlvV2MzcGxseF86MUhmQWltRnRTb3luM1RnRGFzZXNuZw
       username: elastic
       password: password
       repositories:
         enabled: true
+
+management:
+  zipkin:
+    tracing:
+      endpoint: "http://localhost:9411/api/v2/spans"
+  tracing:
+    sampling:
+      probability: 1.0
+
 server:
   port: 8090
