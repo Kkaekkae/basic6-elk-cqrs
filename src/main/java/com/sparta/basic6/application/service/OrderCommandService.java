@@ -28,7 +28,7 @@ public class OrderCommandService {
     @Transactional
     public OrderDetailResponse createOrder(OrderCreateRequest request) {
         Order order = Order.create();
-        List<OrderProduct> orderProducts = getOrderProductsByRequest(request, order);
+        List<OrderProduct> orderProducts = createOrderProductsByRequest(request, order);
         order.updateProducts(orderProducts);
         orderRepository.save(order);
 
@@ -42,7 +42,8 @@ public class OrderCommandService {
         return OrderDetailResponse.of(order);
     }
 
-    private List<OrderProduct> getOrderProductsByRequest(OrderCreateRequest request, final Order order) {
+
+    private List<OrderProduct> createOrderProductsByRequest(OrderCreateRequest request, final Order order) {
         return request.getProducts().stream().map(productRequest -> {
             OrderProduct product = OrderProduct.create(
                     order,

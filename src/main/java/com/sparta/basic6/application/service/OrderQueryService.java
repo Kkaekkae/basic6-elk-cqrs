@@ -13,22 +13,14 @@ import java.util.List;
 @Service
 @Slf4j
 public class OrderQueryService {
-    private final OrderRepository orderRepository;
     private final SearchOrderService searchOrderService;
 
-    public OrderQueryService(OrderRepository orderRepository, SearchOrderService searchOrderService) {
-        this.orderRepository = orderRepository;
+    public OrderQueryService(SearchOrderService searchOrderService) {
         this.searchOrderService = searchOrderService;
     }
 
 
     public List<OrderSearchResponse> getOrders(String productName, Long startPrice, Long endPrice) {
-        List<OrderSearchResponse> response = searchOrderService.search(productName, startPrice, endPrice);
-        return response;
-    }
-
-    public OrderDetailResponse getOrder(Long orderId) {
-        Order order = orderRepository.findById(orderId).orElseThrow();
-        return OrderDetailResponse.of(order);
+        return searchOrderService.search(productName, startPrice, endPrice);
     }
 }
